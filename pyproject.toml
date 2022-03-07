@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "hexlet-code"
+version = "0.1.0"
+description = "cli toll for get diff config file"
+authors = ["Evgeny <fill1986@gmail.com>"]
+packages = [
+  { include = "gendiff_package" },
+]
+
+
+[tool.poetry.dependencies]
+python = "^3.8"
+prompt = "^0.4.1"
+
+[tool.poetry.dev-dependencies]
+flake8 = "^4.0.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+brain-calc = "brain_games.scripts.brain_calc:main"
+gendiff = "gendiff_package.scripts.gendiff:main"
+engine = "gendiff_package.scripts.engine:main"
+
