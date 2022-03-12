@@ -1,4 +1,4 @@
-name: linter-check
+name: pytest
 
 on: push
 
@@ -18,5 +18,5 @@ jobs:
         run: |
           pip install poetry
           make install
-      - name: Run linter
+      - name: pytests
         run: make tests
