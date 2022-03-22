@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import pathlib
 import argparse
 import json
 
@@ -14,8 +15,9 @@ def parser_files():
     file_1 = json.load(open(args.first_file))
     file_2 = json.load(open(args.second_file))
     '''
-    file_1 = json.load(open('/home/evgeny/python-project-lvl2/tests/fixtures/file1.json'))
-    file_2 = json.load(open('/home/evgeny/python-project-lvl2/tests/fixtures/file2.json'))
+    dir_path = pathlib.Path.cwd()
+    file_1 = json.load(open(pathlib.Path(dir_path, 'tests', 'fixtures', 'file1.json')))
+    file_2 = json.load(open(pathlib.Path(dir_path, 'tests', 'fixtures', 'file2.json')))
     return file_1, file_2
 
 
