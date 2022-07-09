@@ -1,7 +1,14 @@
 #!/usr/bin/env python
 
-from gendiff_package.parser import parser_files
+#from yaml import parse
+#from gendiff_package.parser import parser_files
+from gendiff_package.generate_diff import generate_diff
 
+import argparse
+
+
+'''
+# - - - - - - - - 
 file_1, file_2 = parser_files()
 
 
@@ -26,21 +33,29 @@ def generate_diff(file_1, file_2):
 
     return result + '\n' + '}'
 
-print(generate_diff(file_1, file_2)) # TEMPORY for test
+#print(generate_diff(file_1, file_2)) # TEMPORY for test
+'''
+JSON = 'json'
+PLAIN = 'plain'
+STYLISH = 'stylish'
 
 def main():
-    print('test')
+    #print('test')
+    parser = argparse.ArgumentParser(description='Generate diff')
+    parser.add_argument('first_file')
+    parser.add_argument('second_file')
+    parser.add_argument(
+        '-f',
+        '--format',
+        help = 'set format',
+        choices = [STYLISH, PLAIN, JSON],
+        default = STYLISH
+    )
+
+    args = parser.parse_args()
+    #print(generate_diff(args.first_file, args.second_file, args.format))
+    #print('test!!!')
+    print(generate_diff(args.first_file, args.second_file, args.format))
 
 if __name__ == '__main__':
     main()
-
-'''
-{
-  - follow: false
-    host: hexlet.io
-  - proxy: 123.234.53.22
-  - timeout: 50
-  + timeout: 20
-  + verbose: true
-}
-'''
