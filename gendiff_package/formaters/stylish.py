@@ -1,9 +1,5 @@
 import itertools
 
-
-
-
-
 def format_node(
     node_key,
     node_value,
@@ -17,14 +13,6 @@ def format_node(
         stringify(node_value, indent_size),
     )
 
-
-AST = {'host': {'status': 'no_cnange_value', 'value': 'hexlet.io'}, 'timeout': {'status': 'change_value', 'value': 50}, 'proxy': {'status': 'delete_key', 'value': '123.234.53.22'}, 'follow': {'status': 'delete_key', 'value': False}, 'test_arr_key': {'status': 'change_value', 'value': 256}}
-AST2 = {'common': {'status': 'change_value', 'value': {'setting1': 'Value 1', 'setting2': 200, 'setting3': True, 'setting6': {'key': 'value', 'doge': {'wow': ''}}}}, 'group1': {'status': 'change_value', 'value': {'baz': 'bas', 'foo': 'bar', 'nest': {'key': 'value'}}}, 'group2': {'status': 'delete_key', 'value': {'abc': 12345, 'deep': {'id': 45}}}}
-AST3  = [{'type': 'NESTED', 'name': 'common', 'children': [{'type': 'ADDED', 'name': 'follow', 'value': False}, {'type': 'UNCHENGED', 'name': 'setting1', 'value': 'Value 1'}, {'type': 'DELETED', 'name': 'setting2', 'value': 200}, {'type': 'CHANGED', 'name': 'setting3', 'value_before': True, 'value_after': None}, {'type': 'ADDED', 'name': 'setting4', 'value': 'blah blah'}, {'type': 'ADDED', 'name': 'setting5', 'value': {'key5': 'value5'}}, {'type': 'NESTED', 'name': 'setting6', 'children': [{'type': 'NESTED', 'name': 'doge', 'children': [{'type': 'CHANGED', 'name': 'wow', 'value_before': '', 'value_after': 'so much'}]}, {'type': 'UNCHENGED', 'name': 'key', 'value': 'value'}, {'type': 'ADDED', 'name': 'ops', 'value': 'vops'}]}]}, {'type': 'NESTED', 'name': 'group1', 'children': [{'type': 'CHANGED', 'name': 'baz', 'value_before': 'bas', 'value_after': 'bars'}, {'type': 'UNCHENGED', 'name': 'foo', 'value': 'bar'}, {'type': 'CHANGED', 'name': 'nest', 'value_before': {'key': 'value'}, 'value_after': 'str'}]}, {'type': 'DELETED', 'name': 'group2', 'value': {'abc': 12345, 'deep': {'id': 45}}}, {'type': 'ADDED', 'name': 'group3', 'value': {'deep': {'id': {'number': 45}}, 'fee': 100500}}]
-ast_1 = [{'type': 'NESTED', 'name': 'common', 'children': [{'type': 'ADDED', 'name': 'follow', 'value': False}, {'type': 'UNCHENGED', 'name': 'setting1', 'value': 'Value 1'}, {'type': 'DELETED', 'name': 'setting2', 'value': 200}, {'type': 'CHANGED', 'name': 'setting3', 'value_before': True, 'value_after': None}, {'type': 'ADDED', 'name': 'setting4', 'value': 'blah blah'}, {'type': 'ADDED', 'name': 'setting5', 'value': {'key5': 'value5'}}, {'type': 'NESTED', 'name': 'setting6', 'children': [{'type': 'NESTED', 'name': 'doge', 'children': [{'type': 'CHANGED', 'name': 'wow', 'value_before': '', 'value_after': 'so much'}]}, {'type': 'UNCHENGED', 'name': 'key', 'value': 'value'}, {'type': 'ADDED', 'name': 'ops', 'value': 'vops'}]}]}, {'type': 'NESTED', 'name': 'group1', 'children': [{'type': 'CHANGED', 'name': 'baz', 'value_before': 'bas', 'value_after': 'bars'}, {'type': 'UNCHENGED', 'name': 'foo', 'value': 'bar'}, {'type': 'CHANGED', 'name': 'nest', 'value_before': {'key': 'value'}, 'value_after': 'str'}]}, {'type': 'DELETED', 'name': 'group2', 'value': {'abc': 12345, 'deep': {'id': 45}}}, {'type': 'ADDED', 'name': 'group3', 'value': {'deep': {'id': {'number': 45}}, 'fee': 100500}}]
-
-##print(stringify(AST2))
-##print(render(AST3))
 
 def set_indent(indent_size: int = 0):
     return '  ' * indent_size
@@ -132,9 +120,3 @@ def render_stylish(value, replacer='-', spaces_count=0):
         
     
     return iter_(value, 1)
-
-##print(AST3)
-#ast_1  = [{'type': 'nested', 'name': 'common', 'children': [{'type': 'added', 'name': 'follow', 'value': False}, {'type': 'unchanged', 'name': 'setting1', 'value': 'Value 1'}, {'type': 'deleted', 'name': 'setting2', 'value': 200}, {'type': 'changed', 'name': 'setting3', 'value_before': True, 'value_after': None}, {'type': 'added', 'name': 'setting4', 'value': 'blah blah'}, {'type': 'added', 'name': 'setting5', 'value': {'key5': 'value5'}}, {'type': 'nested', 'name': 'setting6', 'children': [{'type': 'nested', 'name': 'doge', 'children': [{'type': 'changed', 'name': 'wow', 'value_before': '', 'value_after': 'so much'}]}, {'type': 'unchanged', 'name': 'key', 'value': 'value'}, {'type': 'added', 'name': 'ops', 'value': 'vops'}]}]}, {'type': 'nested', 'name': 'group1', 'children': [{'type': 'changed', 'name': 'baz', 'value_before': 'bas', 'value_after': 'bars'}, {'type': 'unchanged', 'name': 'foo', 'value': 'bar'}, {'type': 'changed', 'name': 'nest', 'value_before': {'key': 'value'}, 'value_after': 'str'}]}, {'type': 'deleted', 'name': 'group2', 'value': {'abc': 12345, 'deep': {'id': 45}}}, {'type': 'added', 'name': 'group3', 'value': {'deep': {'id': {'number': 45}}, 'fee': 100500}}]
-
-#print(render_stylish(AST3))
-#print(json.dumps(AST3))

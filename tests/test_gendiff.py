@@ -14,9 +14,7 @@ result = result_stylish_simple.read()
 
 dir_path = pathlib.Path.cwd()
 result_stylish_simple = (open(pathlib.Path(dir_path, 'tests', 'fixtures', 'result.txt'))).read()
-#result = result_stylish_simple.read()
 result_stylish_simple_nested = (open(pathlib.Path(dir_path, 'tests', 'fixtures', 'result_sylish_nested_json.txt'))).read()
-#result = result_stylish_simple.read()
 result_plain_format = (open(pathlib.Path(dir_path, 'tests', 'fixtures', 'result_plain_format.txt'))).read()
 result_json_format = (open(pathlib.Path(dir_path, 'tests', 'fixtures', 'result_json_format.txt'))).read()
 
@@ -29,17 +27,17 @@ result_json_format = (open(pathlib.Path(dir_path, 'tests', 'fixtures', 'result_j
 
 
 def test_stylish_simple_json_files():
-    assert generate_diff('tests/fixtures/file1.json', 'tests/fixtures/file2.json') == result_stylish_simple
+    assert generate_diff('tests/fixtures/first_file.json', 'tests/fixtures/second_file.json') == result_stylish_simple
 
 def test_stylish_nested_json_files():
-    assert generate_diff('tests/fixtures/file5.json', 'tests/fixtures/file6.json') == result_stylish_simple_nested
+    assert generate_diff('tests/fixtures/first_file_nested.json', 'tests/fixtures/second_file_nested.json') == result_stylish_simple_nested
 
 def test_stylish_yaml_files():
-    assert generate_diff('tests/fixtures/file1.yaml', 'tests/fixtures/file2.yaml') == result_stylish_simple_nested
+    assert generate_diff('tests/fixtures/first_file.yaml', 'tests/fixtures/second_file.yaml') == result_stylish_simple_nested
 
 def test_plain_format():
-    assert generate_diff('tests/fixtures/file5.json', 'tests/fixtures/file6.json', 'plain') == result_plain_format
+    assert generate_diff('tests/fixtures/first_file_nested.json', 'tests/fixtures/second_file_nested.json', 'plain') == result_plain_format
 
 def test_json_format():
-    assert generate_diff('tests/fixtures/file5.json', 'tests/fixtures/file6.json', 'json') == result_json_format
+    assert generate_diff('tests/fixtures/first_file_nested.json', 'tests/fixtures/second_file_nested.json', 'json') == result_json_format
 

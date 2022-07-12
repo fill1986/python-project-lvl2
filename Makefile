@@ -7,9 +7,9 @@ publish:
 package-install:
 	python3 -m pip install --user dist/*.whl --force-reinstall
 gendiff:
-	poetry run gendiff '/home/evgeny/python-project-lvl2/tests/fixtures/file5.json' '/home/evgeny/python-project-lvl2/tests/fixtures/file6.json'
+	poetry run gendiff '/home/evgeny/python-project-lvl2/tests/fixtures/first_file_nested.json' '/home/evgeny/python-project-lvl2/tests/fixtures/second_file_nested.json'
 gendiff_yaml:
-	poetry run gendiff '/home/evgeny/python-project-lvl2/tests/fixtures/file1.yaml' '/home/evgeny/python-project-lvl2/tests/fixtures/file1.yaml'
+	poetry run gendiff '/home/evgeny/python-project-lvl2/tests/fixtures/first_file.yaml' '/home/evgeny/python-project-lvl2/tests/fixtures/second_file.yaml'
 test:
 	poetry run pytest
 lint:
