@@ -9,15 +9,29 @@
 ### Install and run progtam
 Copy files from git and to install:
 ```
-git clone https://github.com/fill1986/python-project-lvl2 OurDirectory/
-cd OurDirectory
-make install
-make build
-make publish
-make package-install
+$ git clone https://github.com/fill1986/python-project-lvl2 
+$ OurDirectory/
+$ cd OurDirectory
+$ make install
+$ make build
+$ make publish
+$ make package-install
 ```
 
 Demonstration installation:
 
 <a href="https://asciinema.org/a/CeCZyqLoh54n71a48HhcCjKrV" target="_blank"><img src="https://asciinema.org/a/CeCZyqLoh54n71a48HhcCjKrV.svg" /></a>
 
+
+get the difference JSON files
+$ gendiff tests/fixtures/first_file.json tests/fixtures/second_file.json
+
+get the difference YAML files
+$ gendiff tests/fixtures/first_file.yaml tests/fixtures/second_file.json
+
+get difference by other out formats
+$ gendiff --format plain tests/fixtures/first_file.yaml tests/fixtures/second_file.json
+
+$ gendiff --format json tests/fixtures/first_file.yaml tests/fixtures/second_file.json
+
+$ gendiff --format stylish tests/fixtures/first_file.yaml tests/fixtures/second_file.json

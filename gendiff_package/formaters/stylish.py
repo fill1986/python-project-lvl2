@@ -1,5 +1,6 @@
 import itertools
 
+
 def format_node(
     node_key,
     node_value,
@@ -17,6 +18,7 @@ def format_node(
 def set_indent(indent_size: int = 0):
     return '  ' * indent_size
 
+
 def transform_value_to_str(node_value):
     if isinstance(node_value, bool):
         return str(node_value).lower()
@@ -24,6 +26,7 @@ def transform_value_to_str(node_value):
         return 'null'
 
     return str(node_value)
+
 
 def stringify(
     node_data,
@@ -45,7 +48,7 @@ def stringify(
         node_data.keys(),
         node_data.values(),
     )
-    
+
     output = itertools.chain(
         '{',
         processed_data,
@@ -54,18 +57,18 @@ def stringify(
 
     return '\n'.join(output)
 
+
 def select_type(node, depth, type, function):
-    
+
     if type == 'NESTED':
         return '  {0}{1}: {2}'.format(
             set_indent(depth),
             node['name'],
-            function(node['children'], depth+2),
+            function(node['children'], depth + 2),
         )
 
     elif type == 'ADDED':
-        test ='{0}{1} {2}: {3}'.format(set_indent(depth),'+', node['name'], node['value'])
-        #print(f'ADDED -    {test}')
+
         return '{0}{1} {2}: {3}'.format(
             set_indent(depth),
             '+',
@@ -105,18 +108,15 @@ def select_type(node, depth, type, function):
         )
 
 
-    
 def render_stylish(value, replacer='-', spaces_count=0):
 
-    def iter_(current_value, depth = 0):
-   
+    def iter_(current_value, depth=0):
+
         result = map(lambda s_type: select_type(s_type, depth, s_type['type'], iter_), current_value)
-        
+
         return '{{\n{0}\n{1}}}'.format(
             '\n'.join(result),
             set_indent(depth - 1),
         )
 
-        
-    
     return iter_(value, 1)
