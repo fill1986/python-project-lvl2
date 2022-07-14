@@ -52,4 +52,4 @@ $ gendiff --format json tests/fixtures/first_file.json tests/fixtures/second_fil
 ```
 $ gendiff --format stylish tests/fixtures/first_file.yaml tests/fixtures/second_file.json
 ```
-<a href="https://asciinema.org/a/ttXxITc9S7EoaxviIqCfjZXKa" target="_blank"><img src="https://asciinema.org/a/ttXxITc9S7EoaxviIqCfjZXKa" /></a>
+<a href="https://asciinema.org/a/ttXxITc9S7EoaxviIqCfjZXKa" target="_blank"><img src="https://asciinema.org/a/ttXxITc9S7EoaxviIqCfjZXKa.svg" /></a>
