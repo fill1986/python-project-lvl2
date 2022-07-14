@@ -33,7 +33,7 @@ def test_stylish_nested_json_files():
     assert generate_diff('tests/fixtures/first_file_nested.json', 'tests/fixtures/second_file_nested.json') == result_stylish_simple_nested
 
 def test_stylish_yaml_files():
-    assert generate_diff('tests/fixtures/first_file.yaml', 'tests/fixtures/second_file.yaml') == result_stylish_simple_nested
+    assert generate_diff('tests/fixtures/first_file_nested.yaml', 'tests/fixtures/second_file_nested.yaml') == result_stylish_simple_nested
 
 def test_plain_format():
     assert generate_diff('tests/fixtures/first_file_nested.json', 'tests/fixtures/second_file_nested.json', 'plain') == result_plain_format
