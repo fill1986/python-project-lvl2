@@ -3,8 +3,12 @@ name = "hexlet-code"
 version = "0.1.0"
 description = "cli toll for get diff config file"
 authors = ["Evgeny <fill1986@gmail.com>"]
+repository = "https://github.com/fill1986/python-project-lvl2"
 packages = [
   { include = "gendiff_package" },
+]
+classifiers = [
+    "Topic :: Utility for get the difference conf files"
 ]
 
 
