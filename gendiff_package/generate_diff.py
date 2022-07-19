@@ -1,5 +1,5 @@
 from gendiff_package.create_AST import create_AST
-from gendiff_package.parser import parser_files
+from gendiff_package.parsers import parsers
 import os
 from gendiff_package.formaters.render import render
 
@@ -12,10 +12,10 @@ def read_file(path):
 
 def generate_diff(first_file, second_file, format_name='stylish'):
     readed_first_file, ext_first_file = read_file(first_file)
-    first = parser_files(readed_first_file, ext_first_file)
+    first = parsers(readed_first_file, ext_first_file)
 
     readed_second_file, ext_second_file = read_file(second_file)
-    second = parser_files(readed_second_file, ext_second_file)
+    second = parsers(readed_second_file, ext_second_file)
 
     AST = create_AST(first, second)
 
