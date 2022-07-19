@@ -5,3 +5,5 @@ brain_games/scripts/__pycache__/*
 .pytest_cache/
 *.рус
 README.md.save*
+coverage.xml
+.coverage
