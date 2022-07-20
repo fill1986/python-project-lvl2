@@ -15,9 +15,9 @@ def main():
     parser.add_argument(
         '-f',
         '--format',
-        help = 'set format',
-        choices = [STYLISH, PLAIN, JSON],
-        default = STYLISH
+        help='set format',
+        choices=[STYLISH, PLAIN, JSON],
+        default=STYLISH
     )
 
     args = parser.parse_args()
