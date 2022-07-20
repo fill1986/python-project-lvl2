@@ -9,11 +9,12 @@ dir_path = pathlib.Path.cwd()
 @pytest.mark.parametrize(
     ('ext_file', 'format_name'),
     [('json', 'stylish'),
-    ('yaml', 'stylish'),
-    ('json', 'plain'),
-    ('yaml', 'plain'),
-    ('json', 'json'),
-    ('yaml', 'json')])
+     ('yaml', 'stylish'),
+     ('json', 'plain'),
+     ('yaml', 'plain'),
+     ('json', 'json'),
+     ('yaml', 'json')]
+)
 def test_generate_diff(ext_file, format_name):
     first_file = 'tests/fixtures/first_file.{0}'.format(ext_file)
     second_file = 'tests/fixtures/second_file.{0}'.format(ext_file)
