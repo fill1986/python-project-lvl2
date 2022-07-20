@@ -12,8 +12,7 @@ dir_path = pathlib.Path.cwd()
                          ('json', 'plain'),
                          ('yaml', 'plain'),
                          ('json', 'json'),
-                         ('yaml', 'json'),
-])
+                         ('yaml', 'json')])
 def test_generate_diff(ext_file, format_name):
     first_file = 'tests/fixtures/first_file.{0}'.format(ext_file)
     second_file = 'tests/fixtures/second_file.{0}'.format(ext_file)
