@@ -6,7 +6,7 @@ publish:
 	poetry publish --dry-run
 package-install:
 	python3 -m pip install --user dist/*.whl --force-reinstall
-gendiff:
+gendiff_json:
 	poetry run gendiff '/home/evgeny/python-project-lvl2/tests/fixtures/first_file.json' '/home/evgeny/python-project-lvl2/tests/fixtures/second_file.json'
 gendiff_yaml:
 	poetry run gendiff '/home/evgeny/python-project-lvl2/tests/fixtures/first_file.yaml' '/home/evgeny/python-project-lvl2/tests/fixtures/second_file.yaml'
