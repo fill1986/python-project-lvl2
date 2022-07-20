@@ -13,7 +13,7 @@ gendiff_yaml:
 test:
 	poetry run pytest
 lint:
-	poetry run flake8 gendiff_package/
+	poetry run flake8 gendiff/
 test-coverage:
 	poetry run pytest --cov -vv --cov-report xml
 

@@ -1,6 +1,6 @@
 import pathlib
 import pytest
-from gendiff_package.scripts.gendiff import generate_diff
+from gendiff.scripts.gendiff import generate_diff
 
 
 dir_path = pathlib.Path.cwd()
