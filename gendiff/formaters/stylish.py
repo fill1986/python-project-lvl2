@@ -1,22 +1,8 @@
 import itertools
 
 
-def format_node(
-    node_key,
-    node_value,
-    indent_size: int = 0,
-    mark: str = '',
-):
-    return '{0}{1} {2}: {3}'.format(
-        set_indent(indent_size),
-        mark,
-        node_key,
-        stringify(node_value, indent_size),
-    )
-
-
-def set_indent(indent_size: int = 0):
-    return '  ' * indent_size
+def set_indent(depth=0):
+    return '  ' * depth
 
 
 def transform_value_to_str(node_value):
@@ -82,7 +68,7 @@ def select_type(node, depth, type, function):
             node['name'],
             stringify(node['value'], depth),
         )
-    elif type == 'UNCHENGED':
+    elif type == 'UNCHANGED':
         return '{0}{1} {2}: {3}'.format(
             set_indent(depth),
             ' ',
@@ -92,23 +78,23 @@ def select_type(node, depth, type, function):
     elif type == 'CHANGED':
         return '\n'.join(
             [
-                format_node(
+                '{0}{1} {2}: {3}'.format(
+                    set_indent(depth),'-',
                     node['name'],
-                    node['value_before'],
-                    depth,
-                    '-',
-                ),
-                format_node(
+                    stringify(node['value_before'],
+                    depth)
+                    ),
+                '{0}{1} {2}: {3}'.format(
+                    set_indent(depth),'+',
                     node['name'],
-                    node['value_after'],
-                    depth,
-                    '+',
-                ),
+                    stringify(node['value_after'],
+                    depth)
+                    ),
             ],
         )
 
 
-def render_stylish(value, replacer='-', spaces_count=0):
+def render_stylish(value):
 
     def iter_(current_value, depth=0):
 

@@ -19,5 +19,7 @@ def test_generate_diff(ext_file, format_name):
     first_file = 'tests/fixtures/first_file.{0}'.format(ext_file)
     second_file = 'tests/fixtures/second_file.{0}'.format(ext_file)
     result = generate_diff(first_file, second_file, format_name)
-    expected = (open(pathlib.Path(dir_path, 'tests', 'fixtures', 'result_{0}.txt'.format(format_name)))).read()
-    assert result == expected
+    expected = open(pathlib.Path(dir_path, 'tests', 'fixtures', 'result_{0}.txt'.format(format_name)))
+
+    assert result == expected.read()
+    expected.close()

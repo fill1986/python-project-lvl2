@@ -9,10 +9,10 @@ def create_tree_node(key, first_dict, second_dict):
         return {
             'type': 'NESTED',
             'name': key,
-            'children': create_AST(first_value, second_value)
+            'children': create_diff_tree(first_value, second_value)
         }
     if first_value == second_value:
-        return {'type': 'UNCHENGED', 'name': key, 'value': first_value}
+        return {'type': 'UNCHANGED', 'name': key, 'value': first_value}
 
     return {
         'type': 'CHANGED',
@@ -22,11 +22,10 @@ def create_tree_node(key, first_dict, second_dict):
     }
 
 
-def create_AST(file_first, file_second):
-    uniq_keys = sorted(file_first.keys() | file_second.keys())
+def create_diff_tree(first_data, second_data):
+    uniq_keys = sorted(first_data.keys() | second_data.keys())
 
     ast = map(
-        lambda key: create_tree_node(key, file_first, file_second), uniq_keys
+        lambda key: create_tree_node(key, first_data, second_data), uniq_keys
     )
-
     return list(ast)

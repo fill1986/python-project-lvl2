@@ -1,4 +1,4 @@
-from gendiff.create_AST import create_AST
+from gendiff.create_diff_tree import create_diff_tree
 from gendiff.parsers import parsers
 import os
 from gendiff.formaters.render import render
@@ -17,6 +17,6 @@ def generate_diff(first_file, second_file, format_name='stylish'):
     readed_second_file, ext_second_file = read_file(second_file)
     second = parsers(readed_second_file, ext_second_file)
 
-    AST = create_AST(first, second)
+    AST = create_diff_tree(first, second)
 
     return render(AST, format_name)

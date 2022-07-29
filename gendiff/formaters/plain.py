@@ -31,7 +31,7 @@ def select_type_add_return_str(node, parent, function):
 
 
 def filter_AST_for_plain_format(type_obj):
-    if type_obj == 'UNCHENGED':
+    if type_obj == 'UNCHANGED':
         return False
     else:
         return True
