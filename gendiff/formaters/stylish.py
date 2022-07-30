@@ -79,17 +79,17 @@ def select_type(node, depth, type, function):
         return '\n'.join(
             [
                 '{0}{1} {2}: {3}'.format(
-                    set_indent(depth),'-',
+                    set_indent(depth),
+                    '-',
                     node['name'],
-                    stringify(node['value_before'],
-                    depth)
-                    ),
+                    stringify(node['value_before'], depth)
+                ),
                 '{0}{1} {2}: {3}'.format(
-                    set_indent(depth),'+',
+                    set_indent(depth),
+                    '+',
                     node['name'],
-                    stringify(node['value_after'],
-                    depth)
-                    ),
+                    stringify(node['value_after'], depth)
+                ),
             ],
         )
 
